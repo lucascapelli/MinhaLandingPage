@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas.Fullstack - Resolvendo Problemas com Tecnologia</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="components/navbar.js"></script>
+    <script src="components/hero.js"></script>
+    <script src="components/service-card.js"></script>
+    <script src="components/footer.js"></script>
+</head>
+
+<body class="bg-gray-50 font-sans">
+    <custom-navbar></custom-navbar>
+    <custom-hero></custom-hero>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+        <!-- About Section -->
+        <section id="about" class="mb-24">
+            <div class="flex flex-col md:flex-row items-center gap-14 md:gap-20">
+                <div class="md:w-1/2 w-full flex justify-center">
+                    <img src="imgs/FotoIA.png" alt="Lucas Capelli — Full Stack Developer"
+                        class="rounded-2xl shadow-2xl w-full max-w-md h-auto border-4 border-blue-100">
+                </div>
+
+                <div class="md:w-1/2 w-full">
+                    <h2 class="text-4xl font-extrabold text-blue-900 mb-6 tracking-tight">Sobre mim</h2>
+
+                    <p class="text-gray-700 mb-4 text-lg">
+                        Sou Lucas, desenvolvedor Full Stack. Trabalho com Python (automações, APIs e Django),
+                        JavaScript (React, Node.js), HTML/CSS e bancos de dados MySQL/MariaDB.
+                    </p>
+
+                    <p class="text-gray-700 mb-6 text-lg">
+                        Construo sistemas web completos — backend robusto, front-end reativo e integrações confiáveis
+                        com APIs externas — com foco em automação, escalabilidade e resultados mensuráveis.
+                    </p>
+
+                    <ul class="list-disc list-inside text-gray-700 mb-6">
+                        <li>Desenvolvimento de aplicações web completas (Django/Node/React)</li>
+                        <li>Integração de APIs e automações para reduzir trabalho manual</li>
+                        <li>Estruturação de bases SQL e entregas com manutenção previsível</li>
+                    </ul>
+
+                    <div class="flex flex-wrap gap-3">
+                        <span
+                            class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold shadow">Python</span>
+                        <span
+                            class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold shadow">Django</span>
+                        <span
+                            class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold shadow">JavaScript</span>
+                        <span
+                            class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold shadow">React</span>
+                        <span
+                            class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold shadow">React Native</span>
+                        <span
+                            class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold shadow">Node.js</span>
+                        <span
+                            class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold shadow">MySQL
+                            / MariaDB</span>
+                        <span
+                            class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold shadow">SQLite</span>
+                        <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold shadow">APIs
+                            / REST</span>
+                        <span
+                            class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold shadow">Automação</span>
+                        <span
+                            class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold shadow">DevOps</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Services Section -->
+        <section id="services" class="mb-24">
+            <h2
+                class="text-4xl md:text-5xl font-extrabold text-center text-blue-900 mb-14 tracking-tight drop-shadow-lg">
+                O que eu faço</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Development & Systems -->
+                <service-card icon="cpu" title="Desenvolvimento e Sistemas"
+                    items='["Sistemas sob medida para controle", "Dashboards e relatórios", "Automação de processos", "Integração de sistemas", "Banco de dados MySQL/MariaDB"]'
+                    color="blue">
+                </service-card>
+                <!-- Frontend & UX -->
+                <service-card icon="layout" title="Frontend e Experiência do Usuário"
+                    items='["Sites e interfaces intuitivas", "Aplicações web responsivas", "Design funcional para clientes", "Experiência mobile-first"]'
+                    color="indigo">
+                </service-card>
+                <!-- Backend & Business Logic -->
+                <service-card icon="code" title="Backend e Lógica de Negócios"
+                    items='["Processamento de dados", "Cálculos automatizados", "Criação de APIs seguras", "Regras de negócio eficientes"]'
+                    color="blue">
+                </service-card>
+                <!-- Communication -->
+                <service-card icon="message-square" title="Comunicação e Atendimento"
+                    items='["Sistemas de respostas automáticas", "Organização de atendimento", "Redução de retrabalho", "Minimização de erros humanos"]'
+                    color="indigo">
+                </service-card>
+                <!-- Value Added -->
+                <service-card icon="zap" title="Valor Agregado"
+                    items='["Otimização de processos", "Soluções escaláveis", "Manutenção simplificada", "Custo-benefício excelente"]'
+                    color="blue">
+                </service-card>
+                <!-- CTA Card -->
+                <div
+                    class="bg-gradient-to-br from-blue-700 to-indigo-800 rounded-2xl shadow-2xl p-10 flex flex-col justify-between text-white border-2 border-white/10 hover:scale-[1.03] transition-transform duration-300">
+                    <div>
+                        <i data-feather="mail" class="w-14 h-14 mb-5 opacity-90"></i>
+                        <h3 class="text-3xl font-bold mb-4 drop-shadow">Pronto para transformar seu negócio?</h3>
+                        <p class="mb-8 text-lg text-blue-100">Vamos conversar sobre como posso ajudar sua empresa a
+                            economizar tempo e reduzir retrabalho.</p>
+                    </div>
+                    <a href="#contact"
+                        class="bg-white/90 text-blue-900 hover:bg-blue-100 font-semibold py-3 px-8 rounded-lg text-center transition duration-300 shadow-lg mt-2">
+                        Fale comigo
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="bg-white/90 rounded-2xl shadow-2xl p-10 md:p-16 mb-24 border border-blue-100">
+            <h2 class="text-4xl font-extrabold text-center text-blue-900 mb-10 tracking-tight">Vamos trabalhar juntos
+            </h2>
+            <form class="max-w-2xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <label for="name" class="block text-blue-900 font-semibold mb-2">Nome</label>
+                        <input type="text" id="name"
+                            class="w-full px-5 py-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-lg bg-blue-50/50"
+                            placeholder="Seu nome">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-blue-900 font-semibold mb-2">E-mail</label>
+                        <input type="email" id="email"
+                            class="w-full px-5 py-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-lg bg-blue-50/50"
+                            placeholder="seu@email.com">
+                    </div>
+                </div>
+                <div class="mb-8">
+                    <label for="subject" class="block text-blue-900 font-semibold mb-2">Assunto</label>
+                    <input type="text" id="subject"
+                        class="w-full px-5 py-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-lg bg-blue-50/50"
+                        placeholder="Sobre o que deseja falar?">
+                </div>
+                <div class="mb-8">
+                    <label for="message" class="block text-blue-900 font-semibold mb-2">Mensagem</label>
+                    <textarea id="message" rows="5"
+                        class="w-full px-5 py-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-lg bg-blue-50/50"
+                        placeholder="Digite sua mensagem..."></textarea>
+                </div>
+                <button type="submit"
+                    class="w-full bg-gradient-to-r from-blue-700 to-indigo-700 hover:from-blue-800 hover:to-indigo-800 text-white font-bold py-4 px-8 rounded-lg transition duration-300 shadow-lg text-lg tracking-wide">
+                    Enviar mensagem
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <!-- WhatsApp Floating Icon -->
+    <a href="https://wa.me/5511949438693?text=Olá%20Lucas!%20Gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition duration-300 hover:scale-110 z-50 flex items-center justify-center">
+        <i data-feather="phone" class="w-6 h-6"></i>
+    </a>
+
+    <script>
+        feather.replace();
+    </script>
+    <script src="scripts.js"></script>
+</body>
+
+</html>

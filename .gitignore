@@ -1,0 +1,31 @@
+# Imagens
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.svg
+*.ico
+
+# Diretórios de imagens
+/images/
+/img/
+/assets/images/
+
+# Node modules
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+.env
+.env.local
