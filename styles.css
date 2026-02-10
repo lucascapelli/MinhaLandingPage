@@ -42,15 +42,49 @@ body {
 /* Section transitions on desktop */
 @media (min-width: 768px) {
     section {
-        opacity: 0;
-        transform: translateY(20px);
+        opacity: 1;
+        transform: none;
         transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     }
+
+    section.will-animate {
+        opacity: 0;
+        transform: translateY(20px);
+    }
     
-    section.fade-in {
+    section.will-animate.fade-in {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Section transitions on mobile (opacity only, to evitar flicker) */
+@media (max-width: 767px) {
+    section.mobile-will-animate {
+        opacity: 0;
+        transition: opacity 0.6s ease-out;
+    }
+
+    section.mobile-will-animate.fade-in {
+        opacity: 1;
+    }
+}
+
+/* Contact CTA/Form transitions */
+.contact-panel {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+    pointer-events: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease;
+}
+
+.contact-panel.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+    max-height: 4000px;
 }
 
 /* Section spacing */

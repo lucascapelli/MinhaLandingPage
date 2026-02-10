@@ -47,7 +47,7 @@ class CustomFooter extends HTMLElement {
                             <ul class="space-y-2">
                                 <li class="flex items-center">
                                     <i data-feather="mail" class="w-5 h-5 mr-2"></i>
-                                    <span class="text-blue-100">contato@lucasfullstack.com</span>
+                                    <span class="text-blue-100">alcantaraminacapellilucas@gmail.com</span>
                                 </li>
                                 <li class="flex items-center">
                                     <i data-feather="phone" class="w-5 h-5 mr-2"></i>

@@ -45,23 +45,78 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Add animation to sections when they come into view
-    const animateOnScroll = () => {
-        const sections = document.querySelectorAll('section');
-        
+    const sections = document.querySelectorAll('main > section');
+
+    const setupDesktopAnimations = () => {
+        // Evita flicker: só marca para animar quem ainda não está visível
         sections.forEach(section => {
             const sectionTop = section.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (sectionTop < windowHeight - 50) {
-                if (!section.classList.contains('fade-in')) {
+            if (sectionTop < window.innerHeight - 50) {
+                section.classList.add('fade-in');
+            } else {
+                section.classList.add('will-animate');
+            }
+        });
+
+        const animateOnScroll = () => {
+            sections.forEach(section => {
+                if (!section.classList.contains('will-animate')) return;
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight - 50) {
                     section.classList.add('fade-in');
                 }
-            }
+            });
+        };
+
+        // Initial check
+        animateOnScroll();
+
+        // Check on scroll with debounce para melhor performance
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(animateOnScroll, 50);
         });
     };
 
-    // Initial check
-    animateOnScroll();
+    const setupMobileAnimations = () => {
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            if (sectionTop < window.innerHeight - 50) {
+                section.classList.add('fade-in');
+            } else {
+                section.classList.add('mobile-will-animate');
+            }
+        });
+
+        const animateOnScroll = () => {
+            sections.forEach(section => {
+                if (!section.classList.contains('mobile-will-animate')) return;
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight - 50) {
+                    section.classList.add('fade-in');
+                }
+            });
+        };
+
+        animateOnScroll();
+
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(animateOnScroll, 50);
+        });
+    };
+
+    if (window.innerWidth >= 768) {
+        setupDesktopAnimations();
+    } else {
+        setupMobileAnimations();
+    }
     
     // Check on scroll with debounce para melhor performance
     let scrollTimeout;
@@ -80,8 +135,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (faleComigoBtnAttempt) {
         faleComigoBtnAttempt.addEventListener('click', (e) => {
             e.stopPropagation(); // Evita que o clique suba para o pai
-            contactCta.classList.add('hidden');
-            contactFormContainer.classList.remove('hidden');
+            contactCta.classList.remove('active');
+            contactFormContainer.classList.add('active');
             
             // Smooth scroll para o formulário (calcula posição após exibir)
             requestAnimationFrame(() => {
@@ -115,8 +170,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     closeFormBtn.addEventListener('click', () => {
-        contactFormContainer.classList.add('hidden');
-        contactCta.classList.remove('hidden');
+        contactFormContainer.classList.remove('active');
+        contactCta.classList.add('active');
     });
 
     // Enviar formulário via WhatsApp
