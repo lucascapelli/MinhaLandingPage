@@ -58,8 +58,9 @@ class CustomNavbar extends HTMLElement {
                     <a href="#" class="text-2xl font-bold text-white md:text-white navbar-text">Lucas<span class="text-blue-100 md:text-blue-200">fullstack</span></a>
                     <!-- Desktop Navigation -->
                     <div class="hidden md:flex space-x-8">
-                        <a href="#services" class="nav-link text-gray-700 md:text-white hover:text-blue-800 md:hover:text-blue-200">Serviços</a>
                         <a href="#about" class="nav-link text-gray-700 md:text-white hover:text-blue-800 md:hover:text-blue-200">Sobre</a>
+                        <a href="#portfolio" class="nav-link text-gray-700 md:text-white hover:text-blue-800 md:hover:text-blue-200">Portfólio</a>
+                        <a href="#services" class="nav-link text-gray-700 md:text-white hover:text-blue-800 md:hover:text-blue-200">Serviços</a>
                         <a href="#contact" class="nav-link text-gray-700 md:text-white hover:text-blue-800 md:hover:text-blue-200">Contato</a>
                     </div>
                     <!-- Mobile Menu Button -->
@@ -70,8 +71,9 @@ class CustomNavbar extends HTMLElement {
                 <!-- Mobile Navigation -->
                 <div id="mobile-menu" class="mobile-menu md:hidden bg-white">
                     <div class="px-2 pt-2 pb-4 space-y-2">
-                        <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-800 hover:bg-blue-50">Serviços</a>
                         <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-800 hover:bg-blue-50">Sobre</a>
+                        <a href="#portfolio" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-800 hover:bg-blue-50">Portfólio</a>
+                        <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-800 hover:bg-blue-50">Serviços</a>
                         <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-800 hover:bg-blue-50">Contato</a>
                     </div>
                 </div>
