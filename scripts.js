@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetRect = contactCta.getBoundingClientRect();
             const targetPosition = targetRect.top + window.scrollY - 80;
             const distance = targetPosition - startPosition;
-            const duration = 800;
+            const duration = 1400; // mais suave
             let start = null;
 
             function easeInOutCubic(t) {
