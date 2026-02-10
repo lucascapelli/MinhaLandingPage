@@ -172,6 +172,35 @@ document.addEventListener('DOMContentLoaded', function() {
     closeFormBtn.addEventListener('click', () => {
         contactFormContainer.classList.remove('active');
         contactCta.classList.add('active');
+
+        // Smooth scroll de volta para o CTA (melhora fluidez no mobile)
+        requestAnimationFrame(() => {
+            const startPosition = window.scrollY;
+            const targetRect = contactCta.getBoundingClientRect();
+            const targetPosition = targetRect.top + window.scrollY - 80;
+            const distance = targetPosition - startPosition;
+            const duration = 800;
+            let start = null;
+
+            function easeInOutCubic(t) {
+                return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            }
+
+            function animateScroll(timestamp) {
+                if (!start) start = timestamp;
+                const elapsed = timestamp - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const ease = easeInOutCubic(progress);
+                
+                window.scrollTo(0, startPosition + distance * ease);
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animateScroll);
+                }
+            }
+
+            requestAnimationFrame(animateScroll);
+        });
     });
 
     // Enviar formulário via WhatsApp
