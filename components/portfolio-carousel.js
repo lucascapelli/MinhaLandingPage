@@ -201,32 +201,33 @@ class PortfolioCarousel extends HTMLElement {
                 }
 
                 .carousel-indicators {
-                    position: absolute;
-                    bottom: 1rem;
-                    left: 50%;
-                    transform: translateX(-50%);
+                    position: static;
                     display: flex;
-                    gap: 0.5rem;
-                    z-index: 10;
+                    justify-content: center;
+                    gap: 0.75rem;
+                    margin-top: 1rem;
                 }
 
-                .dot {
-                    width: 0.75rem;
-                    height: 0.75rem;
+                .carousel-dot {
+                    width: 0.9rem;
+                    height: 0.9rem;
                     border-radius: 50%;
-                    background: rgba(255, 255, 255, 0.6);
-                    border: none;
+                    background: rgba(0, 0, 0, 0.15);
+                    border: 1px solid rgba(255, 255, 255, 0.4);
+                    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
                     cursor: pointer;
-                    transition: all 0.3s ease;
+                    transition: all 0.25s ease;
                 }
 
-                .dot.active {
-                    background: white;
-                    width: 1.5rem;
+                .carousel-dot.active {
+                    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+                    border-color: rgba(255,255,255,0.85);
+                    width: 1.6rem;
                     border-radius: 9999px;
+                    box-shadow: 0 6px 16px rgba(0,0,0,0.18);
                 }
 
-                .carousel-container:hover .dot {
+                .carousel-container:hover .carousel-dot {
                     opacity: 1;
                 }
 
@@ -285,22 +286,27 @@ class PortfolioCarousel extends HTMLElement {
                     `).join('')}
                 </div>
 
-                <div class="carousel-indicators">
-                    ${projects.map((_, index) => `
-                        <button class="dot ${index === 0 ? 'active' : ''}" data-index="${index}"></button>
-                    `).join('')}
-                </div>
+            </div>
+
+            <div class="carousel-indicators">
+                ${projects.map((_, index) => `
+                    <button class="carousel-dot ${index === 0 ? 'active' : ''}" data-index="${index}"></button>
+                `).join('')}
             </div>
         `;
 
         feather.replace();
 
         const wrapper = this.querySelector('.carousel-wrapper');
-        const dots = this.querySelectorAll('.dot');
+        const dots = this.querySelectorAll('.carousel-dot');
         const container = this.querySelector('.carousel-container');
 
         const updateCarousel = () => {
-            wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+            const slideWidth = container.clientWidth;
+            currentTranslate = -currentIndex * slideWidth;
+            prevTranslate = currentTranslate;
+            wrapper.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            wrapper.style.transform = `translateX(${currentTranslate}px)`;
             dots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === currentIndex);
             });
@@ -338,7 +344,9 @@ class PortfolioCarousel extends HTMLElement {
         };
 
         dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => goToSlide(index));
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+            });
         });
 
         // Swipe / drag support
@@ -355,6 +363,7 @@ class PortfolioCarousel extends HTMLElement {
             isDragging = true;
             startX = clientX;
             prevTranslate = -currentIndex * container.clientWidth;
+            currentTranslate = prevTranslate;
             stopAutoplay();
             wrapper.style.transition = 'none';
         };
@@ -380,7 +389,6 @@ class PortfolioCarousel extends HTMLElement {
                 updateCarousel();
             }
 
-            wrapper.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
             resetAutoplay();
         };
 
